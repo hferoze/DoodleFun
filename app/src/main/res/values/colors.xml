@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#81C784</color>
+    <color name="colorPrimaryDark">#4CAF50</color>
+    <color name="colorAccent">#FF9E80</color>
+
+    <color name="colorPrimary_translucent">#4081C784</color>
+    <color name="colorAccent_translucent">#40FF9E80</color>
+    <color name="black_translucent">#40000000</color>
+
+    <color name="drawing_board_background">#424242</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="lt_grey">#BDBDBD</color>
+
+    <color name="pen_tool_primary_color">#A0BDBDBD</color>
+    <color name="pen_tool_shadow_color">#209E9E9E</color>
+    <color name="pen_menu_color">#F5F5F5</color>
+    <color name="pen_menu_shadow_color">#309E9E9E</color>
+
+    <color name="location_filter_background">#20000000</color>
+</resources>

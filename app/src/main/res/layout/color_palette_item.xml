@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/paint"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/grid_palette_background_image"
+        android:layout_width="@dimen/color_palette_item_width"
+        android:layout_height="@dimen/color_palette_item_height"
+        android:layout_gravity="center"
+        android:padding="4dp"
+        android:layout_margin="4dp"/>
+    <ImageView
+        android:id="@+id/grid_palette_image"
+        android:layout_width="@dimen/color_palette_item_width"
+        android:layout_height="@dimen/color_palette_item_height"
+        android:padding="2dp"
+        android:layout_margin="4dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/content_desc_color_selection_btn"/>
+</FrameLayout>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/drawing_board_background">
+
+    <RelativeLayout
+        android:id="@+id/drawing_board_relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:id="@+id/options_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:background="@color/colorPrimary_translucent"
+            android:elevation="@dimen/app_bar_elevation"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:id="@+id/preview_options"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/save_option"
+                        style="@style/PreviewImagesTheme"
+                        android:src="@drawable/save"
+                        android:onClick="previewMenuItemClicked"
+                        android:contentDescription="@string/content_desc_save_button"/>
+
+                    <ImageView
+                        android:id="@+id/share_option"
+                        style="@style/PreviewImagesTheme"
+                        android:src="@drawable/share"
+                        android:onClick="previewMenuItemClicked"
+                        android:contentDescription="@string/content_desc_share_button"/>
+
+                    <ImageView
+                        android:id="@+id/discard_option"
+                        style="@style/PreviewImagesTheme"
+                        android:src="@drawable/discard"
+                        android:onClick="previewMenuItemClicked"
+                        android:contentDescription="@string/content_desc_discard_button"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/drawing_options_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+                        <ImageView
+                            android:id="@+id/pen_option_main_background"
+                            style="@style/OptionsImagesTheme"
+                            android:src="@drawable/pen_option_background" />
+                        <ImageView
+                            android:id="@+id/pen_option_main"
+                            style="@style/OptionsImagesTheme"
+                            android:src="@drawable/pencil"
+                            android:onClick="optionMenuItemClicked"
+                            android:contentDescription="@string/content_desc_main_pen_option_button"/>
+                    </FrameLayout>
+
+                    <ImageView
+                        android:id="@+id/location_filter_option_main"
+                        style="@style/OptionsImagesTheme"
+                        android:src="@drawable/location_filter"
+                        android:onClick="optionMenuItemClicked"
+                        android:contentDescription="@string/content_desc_loc_filter_option_button"/>
+
+                    <ImageView
+                        android:id="@+id/emoji_option_main"
+                        style="@style/OptionsImagesTheme"
+                        android:src="@drawable/emoji_btn"
+                        android:onClick="optionMenuItemClicked"
+                        android:contentDescription="@string/content_desc_emoji_option_button"/>
+
+                    <ImageView
+                        android:id="@+id/undo_option_main"
+                        style="@style/OptionsImagesTheme"
+                        android:src="@drawable/undo"
+                        android:onClick="optionMenuItemClicked"
+                        android:contentDescription="@string/content_desc_undo_option_button"/>
+
+                    <ImageView
+                        android:id="@+id/redo_option_main"
+                        style="@style/OptionsImagesTheme"
+                        android:src="@drawable/redo"
+                        android:onClick="optionMenuItemClicked"
+                        android:contentDescription="@string/content_desc_redo_option_button"/>
+
+                    <ImageView
+                        android:id="@+id/done_option_main"
+                        style="@style/PreviewImagesTheme"
+                        android:src="@drawable/done"
+                        android:onClick="optionMenuItemClicked"
+                        android:contentDescription="@string/content_desc_done_option_button"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:elevation="@dimen/app_bar_elevation"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/remove_location_filter_btn"
+                style="@style/OptionsImagesTheme"
+                android:src="@drawable/remove_location_filter"
+                android:visibility="gone"
+                android:contentDescription="@string/content_desc_remove_loc_filter__button"/>
+
+            <ImageView
+                android:id="@+id/expand_screen_btn"
+                style="@style/OptionsImagesTheme"
+                android:src="@drawable/full_screen"
+                android:contentDescription="@string/content_desc_expand_screen_option_button"/>
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:id="@+id/drawing_board_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/drawingboard_background_image_view"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/content_desc_drawing_board_background"/>
+
+
+            <com.doodlefun.Drawingboard
+                android:id="@+id/drawingboard_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+        <io.codetail.widget.RevealFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/pen_tools_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible">
+                <include layout="@layout/pen_tools_layout" />
+            </RelativeLayout>
+
+        </io.codetail.widget.RevealFrameLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,116 @@
+<resources>
+    <string name="app_name">Doodle Fun</string>
+
+    <!-- Ads -->
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
+    <!-- Fragment tags -->
+    <string name="main_fragment_tag">main_fragment</string>
+    <string name="drawing_fragment_tag">drawing_fragment</string>
+
+    <!-- Preferences -->
+    <string name="permission_preferences">permission_prefs</string>
+    <string name="pen_config_preferences">pen_config_prefs</string>
+
+    <!-- Permissions -->
+    <string name="storage_permissions_requested_pref">storage_permissions_requested_key</string>
+    <string name="location_permissions_requested_pref">location_permissions_requested_key</string>
+    <string name="permissions_request_count_pref">permissions_request_count_key</string>
+
+    <!-- left right -->
+    <string name="permission_explanation">Would you like to allow Doodle Fun following permission?</string>
+    <string name="permission_explanation_storage_title">Storage</string>
+    <string name="permission_explanation_storage_detail">This will allow Doodle Fun save your doodles in SDcard</string>
+    <string name="permission_explanation_location_title">Location</string>
+    <string name="permission_explanation_location_detail">This will allow Doodle Fun to add Location filter to your Doodle :)</string>
+    <string name="permission_explanation_deny_btn">DENY</string>
+    <string name="permission_explanation_ok_btn">OK</string>
+
+    <!-- left right -->
+    <string name="permission_storage_failure_toast">Project not saved. Please check permissions</string>
+    <string name="permission_location_failure_toast">Couldn\'t find location. Please check permissions</string>
+
+    <!--Drawing Fragment--> <!-- left right -->
+    <string name="query_save_changes_title">Save Changes</string>
+    <string name="query_save_changes_msg">Everything will be lost! Save before exit?</string>
+    <string name="query_save_changes_discard_btn">Discard</string>
+    <string name="query_save_changes_save_btn">Yes</string>
+
+    <!-- Main Fragment --> <!-- left right-->
+    <string name="query_delete_doodle_title">Delete Doodle?</string>
+    <string name="query_delete_doodle_yes_btn">Yes</string>
+    <string name="query_delete_doodle_no_btn">No</string>
+
+    <!-- Save Service --> <!-- left right -->
+    <string name="project_saved_successfully">Project saved successfully</string>
+    <string name="project_save_failed">Failed to save project</string>
+
+    <!--LruCache key-->
+    <string name="lrucache_background_bitmap_key">lrucache_background_bitmap_key</string>
+    <string name="lrucache_drawing_bitmap_key">lrucache_drawing_bitmap_key</string>
+    <string name="lrucache_thumb_bitmap_key">lrucache_thumb_bitmap_key</string>
+
+    <!-- pens preferences -->
+    <string name="eraser_stroke_width_key">eraser_stroke_width_key</string>
+    <string name="pointer_stroke_width_key">pointer_stroke_width_key</string>
+    <string name="pencil_stroke_width_key">pencil_stroke_width_key</string>
+    <string name="brush_stroke_width_key">brush_stroke_width_key</string>
+    <string name="highlighter_stroke_width_key">highlighter_stroke_width_key</string>
+    <string name="pen_color_key">pen_color_key</string>
+    <string name="pen_color_default">E52E39</string>
+    <string name="last_selected_pen_key">last_selected_pen_key</string>
+
+    <!-- location -->
+    <string name="hafertoon_font">hafer_toon.ttf</string>
+    <string name="location_finding_toast">Finding location</string> <!-- left right -->
+    <string name="location_not_found_toast">Could not find location, Please try again</string>
+
+    <!-- widget -->
+    <string name="widget_text_no_doodle_yet">Your latest Doodle will appear when Doodle Fun is launched.\nTap here to launch!</string>
+
+    <!--content descriptions -->
+    <!-- Main Fragment -->
+    <string name="content_desc_background">Background</string>
+    <string name="content_desc_drawing">Drawing</string>
+    <string name="content_desc_edit_button">Edit</string>
+    <string name="content_desc_delete_button">Delete</string>
+    <string name="content_desc_project">Project</string>
+
+    <string name="content_desc_add_project">Add Project</string>
+    <string name="content_desc_open_gallery">Open Gallery</string>
+    <string name="content_desc_open_camera">Open Camera</string>
+    <string name="content_desc_new_project">New Project</string>
+
+    <string name="content_desc_captured_image">Captured Image</string>
+    <string name="content_desc_captured_image_rotate_right">Rotate Right</string>
+    <string name="content_desc_captured_image_rotate_left">Rotate Left</string>
+    <string name="content_desc_captured_image_done">Done Making Changes</string>
+
+    <!-- Drawing Fragment-->
+    <string name="content_desc_save_button">Save</string>
+    <string name="content_desc_share_button">Share</string>
+    <string name="content_desc_discard_button">Discard</string>
+
+    <string name="content_desc_main_pen_option_button">Pen Option</string>
+    <string name="content_desc_loc_filter_option_button">Location Filter</string>
+    <string name="content_desc_emoji_option_button">Emoji</string>
+    <string name="content_desc_undo_option_button">Undo</string>
+    <string name="content_desc_redo_option_button">Redo</string>
+    <string name="content_desc_done_option_button">Done</string>
+
+    <string name="content_desc_remove_loc_filter__button">Remove Location Filter</string>
+    <string name="content_desc_expand_screen_option_button">Expand Screen</string>
+    <string name="content_desc_drawing_board_background">Drawing Board</string>
+
+    <string name="content_desc_eraser">Eraser</string>
+    <string name="content_desc_pointer">Pointer</string>
+    <string name="content_desc_pencil">Pencil</string>
+    <string name="content_desc_brush">Brush</string>
+    <string name="content_desc_highlighter">Highlighter</string>
+
+    <string name="content_desc_color_selection_btn">Color Selection</string>
+
+    <!--- widget -->
+    <string name="content_desc_widget_image">widget Image, tap to launch Doodle Fun</string>
+
+</resources>

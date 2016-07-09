@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <item>
+        <shape>
+            <stroke
+                android:width="3dp"
+                android:color="@color/pen_tool_shadow_color" />
+            <padding
+                android:bottom="0dp"
+                android:left="-1dp"
+                android:right="0dp"
+                android:top="-1dp" />
+            <corners android:radius="0dp" />
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <solid android:color="@color/pen_tool_primary_color" />
+            <corners android:radius="1dp" />
+            <padding
+                android:bottom="0dp"
+                android:left="-4dp"
+                android:right="0dp"
+                android:top="-4dp" />
+        </shape>
+    </item>
+
+
+</layer-list>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical"
+    android:elevation="@dimen/alert_dialog_elevation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/alert_dialog_content_padding">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dialog_title_textView"
+                android:textStyle="bold"
+                android:textSize="@dimen/alert_dialog_title_size"
+                android:paddingBottom="@dimen/alert_dialog_title_bottom_padding"
+                android:text="@string/permission_explanation"/>
+
+            <TextView
+                android:id="@+id/dialog_msg2_textView_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/alert_dialog_msg_size"
+                android:textStyle="bold"
+                android:text="@string/permission_explanation_storage_title" />
+            <TextView
+                android:id="@+id/dialog_msg2_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/alert_dialog_msg_size"
+                android:text="@string/permission_explanation_storage_detail" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/alert_dialog_action_area_height"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialog_cancel_btn"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/permission_explanation_deny_btn"
+            android:padding="@dimen/alert_dialog_buttons_padding"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/dialog_ok_btn"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/permission_explanation_ok_btn"
+            android:padding="@dimen/alert_dialog_buttons_padding"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

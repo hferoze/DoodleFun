@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- MainFragment -->
+    <integer name="num_of_grid_columns">4</integer>
+    <dimen name="grid_item_width">160dp</dimen>
+    <dimen name="grid_item_height">160dp</dimen>
+
+    <!-- app bar -->
+    <dimen name="app_bar_height">72dp</dimen>
+    <dimen name="app_bar_elevation">8dp</dimen>
+    <dimen name="app_bar_bottom_margin">0dp</dimen>
+
+    <!-- fab -->
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_press_translation_z">12dp</dimen>
+    <dimen name="fab_margin">24dp</dimen>
+    <dimen name="fab_translation">120dp</dimen>
+    <dimen name="fab_width">56dp</dimen>
+
+    <!-- drawing options -->
+    <dimen name="drawing_options_width">56dp</dimen>
+    <dimen name="drawing_options_height">56dp</dimen>
+    <dimen name="drawing_options_padding">8dp</dimen>
+    <dimen name="drawing_options_margin">12dp</dimen>
+
+    <!--preview options -->
+    <dimen name="preview_options_padding">16dp</dimen>
+
+    <!--pen tool options-->
+    <dimen name="pen_demo_view_height">120dp</dimen>
+    <dimen name="pen_width_view_margin_left_right">24dp</dimen>
+    <dimen name="pen_width_view_margin_top_bottom">12dp</dimen>
+    <dimen name="pen_tool_height">520dp</dimen>
+
+    <dimen name="pen_seek_bar_width">500dp</dimen>
+    <dimen name="pen_seek_bar_margin_top_bottom">24dp</dimen>
+
+    <!-- color paletter -->
+    <dimen name="color_palette_item_width">56dp</dimen> <!-- 54/3 -->
+    <dimen name="color_palette_item_height">56dp</dimen>
+    <dimen name="pen_color_paletter_margin_top_bottom">16dp</dimen>
+    <dimen name="pen_color_paletter_margin_right_left">8dp</dimen>
+    <dimen name="color_palette_color_circle_width_height">6dp</dimen>
+    <dimen name="color_palette_color_circle_stroke_width">1dp</dimen>
+    <dimen name="color_palette_column_width">8dp</dimen>
+    <dimen name="color_palette_padding">16dp</dimen>
+    <integer name="pen_seek_bar_max">10</integer>
+
+
+    <!--pens-->
+    <dimen name="eraser_min_stroke_width">18dp</dimen>
+    <dimen name="eraser_max_stroke_width">50dp</dimen>
+    <dimen name="pointer_min_stroke_width">3dp</dimen>
+    <dimen name="pointer_max_stroke_width">32dp</dimen>
+    <dimen name="pencil_min_stroke_width">2dp</dimen>
+    <dimen name="pencil_max_stroke_width">32dp</dimen>
+    <dimen name="brush_min_stroke_width">8dp</dimen>
+    <dimen name="brush_max_stroke_width">50dp</dimen>
+    <dimen name="highlighter_min_stroke_width">6dp</dimen>
+    <dimen name="highlighter_max_stroke_width">48dp</dimen>
+    <string name="pointer_alpha">ff</string>
+    <string name="pencil_alpha">c0</string>
+    <string name="brush_alpha">a5</string>
+    <string name="highlighter_alpha">b0</string>
+
+    <!--alert dialog-->
+    <dimen name="alert_dialog_content_padding">24dp</dimen>
+    <dimen name="alert_dialog_image_margin">8dp</dimen>
+    <dimen name="alert_dialog_title_bottom_padding">20dp</dimen>
+    <dimen name="alert_dialog_title_size">18sp</dimen>
+    <dimen name="alert_dialog_msg_size">16sp</dimen>
+    <dimen name="alert_dialog_action_area_height">52dp</dimen>
+    <dimen name="alert_dialog_buttons_padding">8dp</dimen>
+    <dimen name="alert_dialog_elevation">24dp</dimen>
+
+    <!-- widget -->
+    <dimen name="widget_text_size_no_doodle">18sp</dimen>
+    <dimen name="widget_text_size_title">32sp</dimen>
+
+</resources>

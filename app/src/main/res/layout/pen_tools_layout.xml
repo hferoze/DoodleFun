@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pen_options_relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/pen_tool_height"
+    android:layout_marginTop="@dimen/app_bar_height"
+    android:clickable="true"
+    android:orientation="vertical"
+    app:elevation="@dimen/alert_dialog_elevation"
+    android:background="@drawable/menu_shadow">
+
+    <LinearLayout
+        android:id="@+id/pens_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/eraser_option_background"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected"/>
+
+            <ImageView
+                android:id="@+id/eraser_option_pen"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected"
+                android:src="@drawable/eraser"
+                android:contentDescription="@string/content_desc_eraser"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/pen_0_option_background"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected" />
+
+            <ImageView
+                android:id="@+id/pen_0_option_pen"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected"
+                android:src="@drawable/pointer"
+                android:contentDescription="@string/content_desc_pointer"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/pen_1_option_background"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected" />
+
+            <ImageView
+                android:id="@+id/pen_1_option_pen"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected"
+                android:src="@drawable/pencil"
+                android:contentDescription="@string/content_desc_pencil"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/pen_2_option_background"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected" />
+
+            <ImageView
+                android:id="@+id/pen_2_option_pen"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected"
+                android:src="@drawable/brush"
+                android:contentDescription="@string/content_desc_brush"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/pen_3_option_background"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected" />
+
+            <ImageView
+                android:id="@+id/pen_3_option_pen"
+                style="@style/OptionsImagesTheme"
+                android:onClick="penSelected"
+                android:src="@drawable/highlighter"
+                android:contentDescription="@string/content_desc_highlighter"/>
+        </FrameLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/pens_demo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pen_demo_view_height"
+        android:layout_below="@+id/pens_layout"
+        android:layout_marginBottom="@dimen/pen_width_view_margin_top_bottom"
+        android:layout_marginLeft="@dimen/pen_width_view_margin_left_right"
+        android:layout_marginRight="@dimen/pen_width_view_margin_left_right"
+        android:layout_marginTop="@dimen/pen_width_view_margin_top_bottom">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pen_demo_view_height"
+            android:src="@drawable/empty_background" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pen_demo_view_height"
+            android:background="@drawable/pen_demo_view_background"/>
+
+        <com.doodlefun.utils.PenDemoView
+            android:id="@+id/pen_width_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pen_demo_view_height" />
+    </FrameLayout>
+
+    <SeekBar
+        android:id="@+id/pen_size_seek_bar"
+        android:layout_width="@dimen/pen_seek_bar_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pens_demo_layout"
+        android:layout_centerHorizontal="true"
+        android:max="@integer/pen_seek_bar_max" />
+
+
+    <ScrollView
+        android:id="@+id/color_paletter_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pen_size_seek_bar"
+        android:layout_marginBottom="@dimen/pen_color_paletter_margin_top_bottom"
+        android:layout_marginLeft="@dimen/pen_color_paletter_margin_right_left"
+        android:layout_marginRight="@dimen/pen_color_paletter_margin_right_left"
+        android:layout_marginTop="@dimen/pen_color_paletter_margin_top_bottom"
+        android:background="@drawable/color_palette_inner_shadow">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/color_palette_padding">
+
+            <com.doodlefun.utils.PenColorGridView
+                android:id="@+id/pen_color_paletter_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnWidth="@dimen/color_palette_column_width">
+
+            </com.doodlefun.utils.PenColorGridView>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

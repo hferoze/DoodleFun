@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Projects -->
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/projects_recycler_view"
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/new_project_fab"
+        android:src="@drawable/brush_main_menu"
+        style="@style/FabTheme"
+        app:elevation="@dimen/fab_elevation"
+        app:layout_anchor="@+id/projects_recycler_view"
+        app:layout_anchorGravity="bottom|end"
+        app:pressedTranslationZ="@dimen/fab_press_translation_z"
+        android:contentDescription="@string/content_desc_new_project"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/open_camera_fab"
+        android:src="@drawable/camera_main_menu"
+        style="@style/FabTheme"
+        app:elevation="@dimen/fab_elevation"
+        app:layout_anchor="@+id/projects_recycler_view"
+        app:layout_anchorGravity="bottom|end"
+        app:pressedTranslationZ="@dimen/fab_press_translation_z"
+        android:contentDescription="@string/content_desc_open_camera"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/open_gallery_fab"
+        android:src="@drawable/gallery_main_menu"
+        style="@style/FabTheme"
+        app:elevation="@dimen/fab_elevation"
+        app:layout_anchor="@+id/projects_recycler_view"
+        app:layout_anchorGravity="bottom|end"
+        app:pressedTranslationZ="@dimen/fab_press_translation_z"
+        android:contentDescription="@string/content_desc_open_gallery"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/main_options_fab"
+        android:src="@drawable/add"
+        style="@style/FabTheme"
+        app:elevation="@dimen/fab_elevation"
+        app:layout_anchor="@+id/projects_recycler_view"
+        app:layout_anchorGravity="bottom|end"
+        app:pressedTranslationZ="@dimen/fab_press_translation_z"
+        android:contentDescription="@string/content_desc_add_project"/>
+
+
+
+    <io.codetail.widget.RevealFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/project_main_view"
+            android:background="@color/drawing_board_background"
+            android:visibility="invisible"
+            android:alpha="0"
+            android:clickable="true">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/project_background_image_view"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/content_desc_background"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/project_drawing_image_view"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/content_desc_drawing"/>
+
+
+            <ImageView
+                android:id="@+id/project_view_share"
+                style="@style/OptionsImagesTheme"
+                android:src="@drawable/proj_view_share"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:contentDescription="@string/content_desc_share_button"/>
+
+            <ImageView
+                android:id="@+id/project_view_edit"
+                style="@style/OptionsImagesTheme"
+                android:src="@drawable/proj_view_edit"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/content_desc_edit_button"/>
+
+            <ImageView
+                android:id="@+id/project_view_delete"
+                style="@style/OptionsImagesTheme"
+                android:src="@drawable/proj_view_delete"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="@string/content_desc_delete_button"/>
+
+        </RelativeLayout>
+    </io.codetail.widget.RevealFrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/capture_image_relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/drawing_board_background"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:alpha="0">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/captured_image_view"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/content_desc_captured_image"/>
+
+        <ImageView
+            android:id="@+id/captured_image_rotate_left"
+            style="@style/OptionsImagesTheme"
+            android:src="@drawable/rotate_left"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/content_desc_captured_image_rotate_left" />
+
+        <ImageView
+            android:id="@+id/captured_image_rotate_right"
+            style="@style/OptionsImagesTheme"
+            android:src="@drawable/rotate_right"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/content_desc_captured_image_rotate_right"/>
+
+        <ImageView
+            android:id="@+id/captured_image_rotate_done"
+            style="@style/OptionsImagesTheme"
+            android:src="@drawable/done"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/content_desc_captured_image_done"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+
