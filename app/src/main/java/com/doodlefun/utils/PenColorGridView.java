@@ -7,9 +7,6 @@ import android.widget.GridView;
 
 import com.doodlefun.adapter.ColorPaletteAdapter;
 
-/**
- * Created by locker on 6/25/2016.
- */
 public class PenColorGridView extends GridView{
 
     private static final int NUM_OF_COLUMNS = 7;

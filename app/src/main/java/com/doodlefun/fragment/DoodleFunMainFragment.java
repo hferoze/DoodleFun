@@ -27,7 +27,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,9 +53,6 @@ import java.io.File;
 
 import io.codetail.animation.SupportAnimator;
 
-/**
- * Created by locker on 6/21/2016.
- */
 public class DoodleFunMainFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<Cursor>,
         UserProjectsAdapter.OnProjectItemClickedListener {
@@ -101,11 +97,11 @@ public class DoodleFunMainFragment extends Fragment
     private LruCacheHelper mLruCache;
 
     public interface OnNewProjectButtonClickedListener {
-        public void onNewProjectButtonClicked();
+        void onNewProjectButtonClicked();
     }
 
     public interface OnOldProjectButtonClickedListener {
-        public void onOldProjectButtonClicked(String projectFolder);
+        void onOldProjectButtonClicked(String projectFolder);
     }
 
     public static DoodleFunMainFragment getInstance() {
@@ -185,7 +181,6 @@ public class DoodleFunMainFragment extends Fragment
                         displayProjectOptions(null, false, mCurrentProjectX, mCurrentProjectY);
                         return true;
                     } else if (keyCode == KeyEvent.KEYCODE_BACK && isCapturedImageOptionVisible) {
-                        //isCapturedImageOptionVisible = false;
                         displayCapturePhotoOptions(false, null, 0, 0);
                         return true;
                     }
@@ -330,7 +325,7 @@ public class DoodleFunMainFragment extends Fragment
         }else{
             scale = (reqWidth/width) * aspect_ratio;
         }
-        Log.d("TAG","scale " + scale + " h " + height + " w " + width + " rh " + reqHeight + " rw " + reqWidth);
+
         float xTranslation = (reqWidth - width * scale)/2.0f;
         float yTranslation = (reqHeight - height * scale)/2.0f;
 
@@ -545,6 +540,7 @@ public class DoodleFunMainFragment extends Fragment
                 public void onClick(View v) {
                     OnOldProjectButtonClickedListener listener = (OnOldProjectButtonClickedListener)getActivity();
                     listener.onOldProjectButtonClicked(projectFolder);
+                    isProjectDisplayVisible = false;
                     ((ImageView)relativeLayout.findViewById(R.id.project_background_image_view)).setImageBitmap(null);
                     ((ImageView)relativeLayout.findViewById(R.id.project_drawing_image_view)).setImageBitmap(null);
                     relativeLayout.setVisibility( View.INVISIBLE);
@@ -727,9 +723,9 @@ public class DoodleFunMainFragment extends Fragment
                             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                             Utils.log(TAG, " sharing ... ");
                             sharingIntent.setType("image/jpeg");
-                            sharingIntent.putExtra(Intent.EXTRA_TEXT, "Hey! Check out my Doodle I made with Doodle Fun!!");
+                            sharingIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text));
                             sharingIntent.putExtra(Intent.EXTRA_STREAM,  FileUtils.getFileProviderImage(mContext));
-                            startActivityForResult(Intent.createChooser(sharingIntent, "Let's Share on..."), AppConst.SHARE_IMG_REQ);
+                            startActivityForResult(Intent.createChooser(sharingIntent, getString(R.string.share_title)), AppConst.SHARE_IMG_REQ);
                         }
                     }, SHARE_DELAY);
                 }

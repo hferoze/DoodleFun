@@ -35,6 +35,7 @@
     <string name="query_save_changes_msg">Everything will be lost! Save before exit?</string>
     <string name="query_save_changes_discard_btn">Discard</string>
     <string name="query_save_changes_save_btn">Yes</string>
+    <string name="permissions_please_check">Please check permissions</string>
 
     <!-- Main Fragment --> <!-- left right-->
     <string name="query_delete_doodle_title">Delete Doodle?</string>
@@ -67,6 +68,13 @@
 
     <!-- widget -->
     <string name="widget_text_no_doodle_yet">Your latest Doodle will appear when Doodle Fun is launched.\nTap here to launch!</string>
+
+    <!-- share -->
+    <string name="share_text">Hey! Check out my Doodle I made with Doodle Fun!!</string>
+    <string name="share_title">Let\'s Share on</string>
+
+    <!-- emoji -->
+    <string name="emoji_coming_soon">Coming soon</string>
 
     <!--content descriptions -->
     <!-- Main Fragment -->

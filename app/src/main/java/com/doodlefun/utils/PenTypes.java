@@ -21,7 +21,7 @@ import com.doodlefun.R;
 public class PenTypes implements IPenOptionsChangedListener{
 
     private int mStrokeWidth, mCurrentPenMinStrokeWidth, mCurrentPenMaxStrokeWidth, mCurrentPenTypeId;
-    private String  mColor,mCurrentPenAlpha, mCurrentPenName;
+    private String  mColor, mCurrentPenAlpha, mCurrentPenName;
     private Paint mCurrentPenType;
 
     private static PenTypes mPenTypes = null;
@@ -260,10 +260,9 @@ public class PenTypes implements IPenOptionsChangedListener{
         Canvas canvas = new Canvas(resultBitmap);
         canvas.drawBitmap(resultBitmap, 0, 0, p);
 
-        BitmapShader patternShader = new BitmapShader(resultBitmap,
-                Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
 
-        return patternShader;
+        return new BitmapShader(resultBitmap,
+                Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
     }
 
     public Paint getCurrentPenType(){

@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.doodlefun.fragment.DoodleFunMainFragment;
@@ -23,14 +24,25 @@ public class DoodleFunMainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Solution from stackoverflow for app launch from widget. brings the previously
+        //running activity to the front
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+            finish();
+            return;
+        }
+
         setContentView(R.layout.doodle_fun_main_activity);
-        loadAd();
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         initFragments();
+        loadAd();
         new CreatePrivateFolderTask().execute();
     }
 

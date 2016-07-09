@@ -43,7 +43,7 @@ public class CheckPermissions {
     private Context mContext;
 
     public interface OnPermissionAllowedListener{
-        public void OnPermissionAllowed(String permissionType);
+        void OnPermissionAllowed(String permissionType);
     }
 
     public static CheckPermissions getInstance() {
@@ -158,7 +158,7 @@ public class CheckPermissions {
             public void onClick(View v) {
                 mAlert.dismiss();
                 Toast.makeText(mContext,
-                        "Please check permissions", Toast.LENGTH_SHORT).show();
+                        mContext.getString(R.string.permissions_please_check), Toast.LENGTH_SHORT).show();
                 mSharedPrefEditor.putInt(mContext.getString(R.string.permissions_request_count_pref), 0);
                 mSharedPrefEditor.apply();
                 mSharedPrefEditor.putBoolean(mContext.getString(R.string.location_permissions_requested_pref), false);

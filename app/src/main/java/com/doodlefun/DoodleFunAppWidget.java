@@ -34,7 +34,7 @@ public class DoodleFunAppWidget extends AppWidgetProvider{
      * Bitmap from Uri, but it turned out that widgets can't access internal memory, unless
      * alot of changes are made to the content provider. Now, we simple receive a byte array in
      * onReceive and decode Bitmap from
-     * @return
+     * @return always returns true
      */
     private boolean updateCurrentImage(){
         int i = 0;
@@ -56,11 +56,9 @@ public class DoodleFunAppWidget extends AppWidgetProvider{
         String action = intent.getAction();
 
         if (action.startsWith(IC_CLICKED)) {
-            Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
-            launchIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            launchIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(launchIntent);
+            Intent launch = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+            launch.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY);
+            context.startActivity(launch);
         } else if(action.equals(AppWidgetManager.ACTION_APPWIDGET_UPDATE)){
             if (intent.hasExtra(BITMAP_BYTE_ARRAY)) {
                 new Handler().post(new Runnable() {

@@ -31,10 +31,6 @@ public class AppConst {
     public static final String IS_SAVED_ON_SDCARD_KEY = "is_saved_on_sdcard_key";
     public static final String IS_NEW_PROJECT = "is_new_project_key";
 
-
-    public static final String DEFAULT_ORIENTATION = "PORTRAIT";
-    public static final String LANDSCAPE_ORIENTATION = "LANDSCAPE";
-
     //save service
     public static final String PROJ_NAME_EXTRA = "prj_name";
     public static final String PROJ_IS_PRIVATE_EXTRA = "prj_is_private_extra";

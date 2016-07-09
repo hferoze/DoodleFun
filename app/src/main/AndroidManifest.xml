@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".DoodleFunMainActivity"
             android:screenOrientation="portrait"
-            android:configChanges="orientation|keyboardHidden">
+            android:configChanges="orientation|keyboardHidden|locale|layoutDirection">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +30,7 @@
         <activity android:name=".DoodleFunDrawingActivity"
                   android:parentActivityName=".DoodleFunMainActivity"
                   android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden">
+                  android:configChanges="orientation|keyboardHidden|locale|layoutDirection">
         </activity>
 
         <service android:name=".data.db.UpdaterService"

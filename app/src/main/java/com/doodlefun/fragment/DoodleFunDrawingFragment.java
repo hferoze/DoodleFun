@@ -30,7 +30,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -285,30 +284,32 @@ public class DoodleFunDrawingFragment extends Fragment
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getView().setFocusableInTouchMode(true);
-        getView().requestFocus();
-        Utils.log(TAG, "onActivityCreated");
-        getView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN) {
-                    //in preview mode, go back to drawing mode
-                    if (keyCode == KeyEvent.KEYCODE_BACK && getCurrentOptionsMode() == OPTIONS_MODE_PREVIEW) {
-                        setOptionsMode(OPTIONS_MODE_DRAWING);
-                        return true;
-                        //ask user to if they want to save project ONLY if changes were made
-                    } else if (keyCode == KeyEvent.KEYCODE_BACK && getCurrentOptionsMode() == OPTIONS_MODE_DRAWING && sDrawingBoard.getChangesMade()) {
-                        querySaveChanges();
-                        return true;
-                        //in pen mode, go back to drawing mode
-                    } else if (keyCode == KeyEvent.KEYCODE_BACK && getCurrentOptionsMode() == OPTIONS_MODE_PEN) {
-                        setOptionsMode(OPTIONS_MODE_DRAWING);
-                        return true;
+        if (getView()!=null) {
+            getView().setFocusableInTouchMode(true);
+            getView().requestFocus();
+            Utils.log(TAG, "onActivityCreated");
+            getView().setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                        //in preview mode, go back to drawing mode
+                        if (keyCode == KeyEvent.KEYCODE_BACK && getCurrentOptionsMode() == OPTIONS_MODE_PREVIEW) {
+                            setOptionsMode(OPTIONS_MODE_DRAWING);
+                            return true;
+                            //ask user to if they want to save project ONLY if changes were made
+                        } else if (keyCode == KeyEvent.KEYCODE_BACK && getCurrentOptionsMode() == OPTIONS_MODE_DRAWING && sDrawingBoard.getChangesMade()) {
+                            querySaveChanges();
+                            return true;
+                            //in pen mode, go back to drawing mode
+                        } else if (keyCode == KeyEvent.KEYCODE_BACK && getCurrentOptionsMode() == OPTIONS_MODE_PEN) {
+                            setOptionsMode(OPTIONS_MODE_DRAWING);
+                            return true;
+                        }
                     }
+                    return false;
                 }
-                return false;
-            }
-        });
+            });
+        }
     }
 
     @Override
@@ -319,7 +320,7 @@ public class DoodleFunDrawingFragment extends Fragment
             public void run() {
                 Utils.log(TAG, "location found: " + location);
                 if (!TextUtils.equals(location, LOCATION_SEARCH_FAILED_KEY) && location.length()>0) {
-                    Bitmap locationBitmap = Bitmap.createBitmap((int) sDrawingBoard.getWidth(),
+                    Bitmap locationBitmap = Bitmap.createBitmap(sDrawingBoard.getWidth(),
                             sDrawingBoard.getHeight() / 4, Bitmap.Config.ARGB_8888);
                     Paint paint = createLocationTextPaint(mLocationFontTypeFace, true, locationBitmap.getWidth()/location.length());
                     Canvas canvas = new Canvas(locationBitmap);
@@ -334,15 +335,15 @@ public class DoodleFunDrawingFragment extends Fragment
                         parent.removeViewAt(parent.getChildCount()-1);
                     }
 
-                    FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams((int) sDrawingBoard.getWidth(),
+                    FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(sDrawingBoard.getWidth(),
                             sDrawingBoard.getHeight());
-                    lp.topMargin = (int)(locationBitmap.getHeight());
+                    lp.topMargin = locationBitmap.getHeight();
 
                     ImageView locationImageView = new ImageView(mContext);
                     locationImageView.setImageBitmap(locationBitmap);
                     mLocationFrameLayout.addView(locationImageView, lp);
 
-                    lp = new FrameLayout.LayoutParams((int) sDrawingBoard.getWidth(),
+                    lp = new FrameLayout.LayoutParams( sDrawingBoard.getWidth(),
                             sDrawingBoard.getHeight());
                     lp.topMargin = sDrawingBoard.getTop();
                     lp.leftMargin = sDrawingBoard.getLeft();
@@ -703,7 +704,7 @@ public class DoodleFunDrawingFragment extends Fragment
 
 
     private void addEmojis() {
-        Toast.makeText(mContext, "Coming soon...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, getString(R.string.emoji_coming_soon), Toast.LENGTH_SHORT).show();
     }
 
     private void doneDrawingClicked() {
@@ -740,11 +741,11 @@ public class DoodleFunDrawingFragment extends Fragment
                         @Override
                         public void run() {
                             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                            Log.d(TAG, " sharing ... ");
+                            Utils.log(TAG, " sharing ... ");
                             sharingIntent.setType("image/jpeg");
-                            sharingIntent.putExtra(Intent.EXTRA_TEXT, "Hey! Check out my Doodle I made with Doodle Fun!!");
-                            sharingIntent.putExtra(Intent.EXTRA_STREAM, FileUtils.getFileProviderImage(mContext));
-                            startActivityForResult(Intent.createChooser(sharingIntent, "Let's Share on..."), AppConst.SHARE_IMG_REQ);
+                            sharingIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text));
+                            sharingIntent.putExtra(Intent.EXTRA_STREAM,  FileUtils.getFileProviderImage(mContext));
+                            startActivityForResult(Intent.createChooser(sharingIntent, getString(R.string.share_title)), AppConst.SHARE_IMG_REQ);
                         }
                     }, SHARE_PROJ_DELAY);
                 }
@@ -791,9 +792,9 @@ public class DoodleFunDrawingFragment extends Fragment
         }
 
         //create thumbnail bitmap
-        Rect dest = new Rect(0, 0, (int) (sDrawingBoard.getMeasuredWidth()), (int) (sDrawingBoard.getMeasuredHeight()));
+        Rect dest = new Rect(0, 0, sDrawingBoard.getMeasuredWidth(),  sDrawingBoard.getMeasuredHeight());
         Bitmap thumb = Bitmap.createBitmap(
-                (int) (sDrawingBoard.getMeasuredWidth()), (int) (sDrawingBoard.getMeasuredHeight()), Bitmap.Config.ARGB_8888);
+                sDrawingBoard.getMeasuredWidth(), sDrawingBoard.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
         Canvas thumbCanvas = new Canvas(thumb);
         thumbCanvas.drawColor(Color.WHITE);
         if (mBackgroundBitmap != null) {
